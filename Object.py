@@ -2,28 +2,17 @@ import numpy as np
 
 
 class Object:
-    def __init__(self, file_name):
-        self._vertices = []
-        self._faces = []
-        self._load_file(file_name)
+    def __init__(self, vertices, faces):
+        self._vertices = vertices
+        self._faces = faces
 
     @property
     def vertices(self):
         return self._vertices
 
-    def _load_file(self, file_name):
-        file = open(file_name, "r")
-
-        for line in file:
-            values = line.replace("/", " ").split()
-
-            if values[0] == 'v':
-                vertex = [float(values[1]), float(values[2]), float(values[3])]
-                self._vertices.append(vertex)
-            elif values[0] == 'f':
-                face = [int(values[1]) - 1, int(values[2]) - 1, int(values[3]) - 1]
-                self._faces.append(face)
-        file.close()
+    @property
+    def faces(self):
+        return self._faces
 
     def save_file(self, file_path):
         file = open(file_path, "w")
