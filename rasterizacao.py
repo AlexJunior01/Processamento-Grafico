@@ -17,7 +17,7 @@ def fill_triangle(matriz, vt1, vt2, vt3):
 
     if vt1.y == vt2.y == vt3.y:
         vt1, vt2, vt3 = sort_vertices_x(vt1, vt2, vt3)
-        drawLine(matriz, vt3.x, vt3.y, vt1.x, vt1.y)
+        draw_line(matriz, vt3.x, vt3.y, vt1.x, vt1.y)
     elif vt2.y == vt3.y:
         fill_flat_side_triangle_int(matriz, vt1, vt2, vt3)
     elif vt1.y == vt2.y:
@@ -68,9 +68,9 @@ def fill_flat_side_triangle_int(matriz, v1, v2, v3):
 
     for i in range(dx1 + 1):
         if vTmp1.x < vTmp2.x:
-            drawLine(matriz, vTmp1.x, vTmp1.y, vTmp2.x, vTmp2.y)
+            draw_line(matriz, vTmp1.x, vTmp1.y, vTmp2.x, vTmp2.y)
         else:
-            drawLine(matriz, vTmp2.x, vTmp2.y, vTmp1.x, vTmp1.y)
+            draw_line(matriz, vTmp2.x, vTmp2.y, vTmp1.x, vTmp1.y)
 
         while e1 >= 0:
             if changed1:
@@ -102,6 +102,6 @@ def fill_flat_side_triangle_int(matriz, v1, v2, v3):
             e2 = e2 + 2 * dy2
 
 
-def drawLine(matriz, vTmp1x, vTmp1y, vTmp2x, vTmp2y):
+def draw_line(matriz, vTmp1x, vTmp1y, vTmp2x, vTmp2y):
     for i in range(vTmp1x, vTmp2x+1):
         matriz[i][vTmp1y] = 1

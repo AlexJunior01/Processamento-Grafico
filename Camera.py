@@ -28,3 +28,7 @@ class Camera:
 
         M = t.matrix_multiplication(R, T)
         return M
+
+    @property
+    def view_matrix(self):
+        return self._view_matrix
