@@ -1,5 +1,6 @@
 import numpy as np
 from Object import Object
+from PIL import Image
 
 
 def cross_product(a, b):
@@ -51,3 +52,24 @@ def world_to_view(matrix_view, object):
 
     new_object = Object(new_vertices, object.faces)
     return new_object
+
+
+def view_port(object, width, height):
+    height = np.ceil(height/2)
+    width = np.ceil(width/2)
+    object.translate([1, 1, 0])
+    object.scale([width, height, 0])
+
+    return object
+
+
+def create_image(shape, matrix):
+
+    img = Image.new('1', shape)
+    pixels = img.load()
+
+    for i in range(img.size[0]):
+        for j in range(img.size[1]):
+            pixels[i, j] = int(matrix[i][j])
+
+    img.show('teste_final.bmp')
