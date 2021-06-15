@@ -103,5 +103,15 @@ def fill_flat_side_triangle_int(matriz, v1, v2, v3):
 
 
 def draw_line(matriz, vTmp1x, vTmp1y, vTmp2x, vTmp2y):
-    for i in range(vTmp1x, vTmp2x+1):
-        matriz[i][vTmp1y] = 1
+    shape = matriz.shape
+    start = vTmp1x
+    end = vTmp2x+1
+
+    if 0 < vTmp1y < shape[1]:
+        if vTmp1x < 0:
+            start = 0
+        elif vTmp2x >= shape[0]:
+            end = shape[0]
+
+        for i in range(start, end):
+            matriz[i][vTmp1y] = 1

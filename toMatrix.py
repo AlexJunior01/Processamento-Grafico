@@ -1,19 +1,5 @@
-import numpy as np
 from rasterizacao import *
 from Vertex import Vertex
-from PIL import Image
-
-
-def save_image(shape, matrix, i):
-
-    img = Image.new('1', shape)
-    pixels = img.load()
-
-    for i in range(img.size[0]):
-        for j in range(img.size[1]):
-            pixels[i, j] = int(matrix[i][j])
-
-    img.save(f't{i}.bmp')
 
 
 def get_coordinates(ind_vertex, object):
@@ -26,7 +12,7 @@ def get_coordinates(ind_vertex, object):
     return coordinates
 
 
-def obj_to_matrix (x, y, object):
+def obj_to_matrix(x, y, object):
     matrix = np.zeros((x, y))
     
     for i, f in enumerate(object.faces):
