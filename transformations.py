@@ -63,8 +63,7 @@ def view_port(object, width, height):
     return object
 
 
-def create_image(shape, matrix):
-
+def create_image(shape, matrix, file_name):
     img = Image.new('1', shape)
     pixels = img.load()
 
@@ -72,4 +71,4 @@ def create_image(shape, matrix):
         for j in range(img.size[1]):
             pixels[i, j] = int(matrix[i][j])
 
-    img.show('teste_final.bmp')
+    img.save(f'{file_name}.bmp')
