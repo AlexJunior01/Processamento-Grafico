@@ -38,8 +38,7 @@ def matrix_vector_multiplication(matrix, vector):
     for i in range(col):
         aux = matrix[i][:] * [vector[0], vector[1], vector[2], vector[3]]
         result[i] = np.sum(aux)
-    print(result)
-    return result
+    return result.tolist()
 
 
 def world_to_view(matrix_view, object):
