@@ -9,7 +9,7 @@ def perspective(right, top, near, far):
     return np.array((
         ( A, 0, 0, 0),
         ( 0, B, 0, 0),
-        ( 0, 0, C, -1)
+        ( 0, 0, C, -1),
         ( 0, 0, D, 0)
     ))
     
